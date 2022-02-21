@@ -39,36 +39,40 @@ def to_usd(my_price):
 
 # TODO: write some Python code here to produce the desired output
 
-print(products)
+print("Welcome to the Shopping Cart Application. You will soon be asked to input product identifiers")
+print("When you are done inputting product identifiers simply enter the word 'DONE'")
 
 while True:
 
-
-    #Ask for user input
+    # ASK FOR USER INPUT
 
     product_id = input("Please input a product identifier: ")
-    print(product_id)
+    #print(product_id) #> "9"
+    #print(type(product_id)) #> str
+    if product_id == "DONE":
+        break
 
+    # LOOK UP CORRESPONDING PRODUCTS
 
-    #Look up cooresponding products
+    # print product that has an id attribute equal to "9"
 
-    #print product that has an id attribute equal to "9"
     matching_products = []
+
     for x in products:
-        #if x ==3:
-        #___.append(x)
-        print(x["id"])
+        #if x == 3:
+        #    ___.append(x)
+        #print(x)
+        #print(x["id"])
         if str(x["id"]) == str(product_id):
             # this is a match
             matching_products.append(x)
 
-    print(matching_products)
-    print(type(matching_products))
-    print(len(matching_products))
-    #print the name of the matching product
-
+    #print(matching_products)
+    #print(type(matching_products))
+    #print(len(matching_products))
+    # print the name of the matching product
     matching_product = matching_products[0]
-
+    print(matching_product["name"], tousd(matching_product["price"])
 
 
 
