@@ -44,30 +44,30 @@ print(products)
 while True:
 
 
-#Ask for user input
+    #Ask for user input
 
-product_id = input("Please input a product identifier: ")
-print(product_id)
+    product_id = input("Please input a product identifier: ")
+    print(product_id)
 
 
-#Look up cooresponding products
+    #Look up cooresponding products
 
-#print product that has an id attribute equal to "9"
-matching_products = []
-for x in products:
-    #if x ==3:
-    #___.append(x)
-    print(x["id"])
-    if str(x["id"]) == str(product_id):
-        # this is a match
-        matching_products.append(x)
+    #print product that has an id attribute equal to "9"
+    matching_products = []
+    for x in products:
+        #if x ==3:
+        #___.append(x)
+        print(x["id"])
+        if str(x["id"]) == str(product_id):
+            # this is a match
+            matching_products.append(x)
 
-print(matching_products)
-print(type(matching_products))
-print(len(matching_products))
-#print the name of the matching product
+    print(matching_products)
+    print(type(matching_products))
+    print(len(matching_products))
+    #print the name of the matching product
 
-matching_product = matching_products[0]
+    matching_product = matching_products[0]
 
 
 
