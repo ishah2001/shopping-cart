@@ -1,5 +1,8 @@
 # shopping_cart.py
 
+from datetime import datetime
+
+
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -40,7 +43,20 @@ def to_usd(my_price):
 # TODO: write some Python code here to produce the desired output
 
 print("Welcome to the Shopping Cart Application. You will soon be asked to input product identifiers")
+print("")
 print("When you are done inputting product identifiers simply enter the word 'DONE'")
+print("")
+
+current_time = datetime.now()
+current_time_formatted = current_time.strftime("%y/%m/%d %I:%M:%p")
+
+nyc_tax_rate = 0.0875
+grocery_store_name = "ISHAAN'S GROCERY SHOP"
+grocery_store_number = "333-675-4847"
+matching_products = []
+
+subtotal = 0
+
 
 while True:
 
@@ -53,33 +69,41 @@ while True:
         break
 
     # LOOK UP CORRESPONDING PRODUCTS
-
-    # print product that has an id attribute equal to "9"
-
-    matching_products = []
-
     for x in products:
-        #if x == 3:
-        #    ___.append(x)
-        #print(x)
-        #print(x["id"])
         if str(x["id"]) == str(product_id):
             # this is a match
             matching_products.append(x)
-
-    #print(matching_products)
-    #print(type(matching_products))
-    #print(len(matching_products))
-    # print the name of the matching product
-    matching_product = matching_products[0]
-    print(matching_product["name"], tousd(matching_product["price"])
+            subtotal = subtotal + x["price"]
 
 
 
 
+#printing the receipt
+print("")
+print("----------------------------------------------")
+print(grocery_store_name)
+print(grocery_store_number)
+print("----------------------------------------------")
+print("CHECKOUT AT: " + current_time_formatted)
+print("----------------------------------------------")
+print("SELECTED PRODUCTS: ")
+
+#printing all items
+for x in matching_products:
+    print("... " + x["name"] + " (" + to_usd(x["price"]) +") ")
+
+#tax and total calculation
+tax = subtotal * nyc_tax_rate
+total = subtotal + tax
+
+print("----------------------------------------------")
+print("SUBTOTAL: " + to_usd(subtotal))
+print("TAX: " + to_usd(tax))
+print("TOTAL: " + to_usd(total))
+print("----------------------------------------------")
+print("THANKS, SEE YOU AGAIN SOON!")
+print("----------------------------------------------")
 
 
 
 
-
-#Look up correspondng products
