@@ -41,6 +41,8 @@ def to_usd(my_price):
 
 print(products)
 
+while True:
+
 
 #Ask for user input
 
