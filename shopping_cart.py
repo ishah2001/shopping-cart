@@ -42,11 +42,13 @@ def to_usd(my_price):
 
 # TODO: write some Python code here to produce the desired output
 
+#welcome messaging
 print("Welcome to the Shopping Cart Application. You will soon be asked to input product identifiers")
 print("")
 print("When you are done inputting product identifiers simply enter the word 'DONE'")
 print("")
 
+#getting the current time
 current_time = datetime.now()
 current_time_formatted = current_time.strftime("%Y/%m/%d %I:%M:%p")
 
@@ -64,6 +66,7 @@ while True:
 
     product_id = input("Please input a product identifier: ")
     
+    #validating user inputs
     if product_id == "DONE" or product_id == "Done" or product_id == "done":
         break
 
