@@ -1,5 +1,5 @@
 # shopping_cart.py
-
+import os
 from datetime import datetime
 
 
@@ -48,9 +48,9 @@ print("When you are done inputting product identifiers simply enter the word 'DO
 print("")
 
 current_time = datetime.now()
-current_time_formatted = current_time.strftime("%y/%m/%d %I:%M:%p")
+current_time_formatted = current_time.strftime("%Y/%m/%d %I:%M:%p")
 
-nyc_tax_rate = 0.0875
+tax_rate = float(os.getenv("TAX_RATE", default=0.0875))
 grocery_store_name = "ISHAAN'S GROCERY SHOP"
 grocery_store_number = "333-675-4847"
 matching_products = []
@@ -63,8 +63,7 @@ while True:
     # ASK FOR USER INPUT
 
     product_id = input("Please input a product identifier: ")
-    #print(product_id) #> "9"
-    #print(type(product_id)) #> str
+    
     if product_id == "DONE" or product_id == "Done" or product_id == "done":
         break
 
@@ -96,7 +95,7 @@ for x in matching_products:
     print("... " + x["name"] + " (" + to_usd(x["price"]) +") ")
 
 #tax and total calculation
-tax = subtotal * nyc_tax_rate
+tax = subtotal * tax_rate
 total = subtotal + tax
 
 print("----------------------------------------------")
